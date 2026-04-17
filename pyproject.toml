@@ -1,0 +1,49 @@
+[project]
+name = "cohere-agent-cookbook"
+version = "0.1.0"
+description = "Production-grade recipes for building agents on Cohere Command"
+authors = [{name = "Doeon Kim", email = "noreply@example.com"}]
+license = {text = "MIT"}
+requires-python = ">=3.11"
+readme = "README.md"
+
+dependencies = [
+    "cohere>=5.13",
+    "pydantic>=2.5",
+    "structlog>=24.0",
+    "rich>=13.0",
+    "python-dotenv>=1.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "pytest-mock>=3.12",
+    "mypy>=1.8",
+    "ruff>=0.5",
+    "black>=24.3",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["recipes", "common"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
