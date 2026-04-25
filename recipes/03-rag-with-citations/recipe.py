@@ -16,7 +16,6 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
-from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
@@ -117,7 +116,7 @@ def main() -> int:
 
     result = run(args.query, model=args.model)
     print(format_cited_answer(result))
-    print(f"\n---")
+    print("\n---")
     print(f"Tokens: in={result.input_tokens}, out={result.output_tokens}")
     print(f"Cost:   ${result.cost_usd:.6f}")
     print(f"Citations: {len(result.citations)}")

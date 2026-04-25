@@ -141,13 +141,13 @@ def render_report(results: list[EvalResult]) -> str:
     agg = sum(r.score for r in results) / max(1, len(results))
 
     out = []
-    out.append(f"# Eval Report")
+    out.append("# Eval Report")
     out.append("")
     out.append(f"- **Total**: {len(results)}")
     out.append(f"- **Passed**: {passed} ({100 * passed / len(results):.1f}%)")
     out.append(f"- **Aggregate score**: {agg:.3f}")
     out.append("")
-    out.append(f"## Results")
+    out.append("## Results")
     out.append("")
     out.append("| ID | Status | Score | Failures |")
     out.append("|----|--------|-------|----------|")
